@@ -1,0 +1,133 @@
+---
+title: "Introduction to `sortable`"
+subtitle: "Using drag-and-drop in your shiny apps"  
+author: 
+  - "Andrie de Vries"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: 
+    - xaringan-themer.css
+    - include/custom.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+    includes:
+      after_body: include/insert-logo.html
+    slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#3771c8",
+  secondary_color = "#629fdd",
+  inverse_header_color = "#FFFFFF",
+  title_slide_background_image = "images/flickr/ice-crystals-wide.jpg",
+  title_slide_text_color = "black"
+)
+```
+
+
+class: center, middle
+
+# Motivation
+
+---
+
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/running_by_wide.jpg")
+background-size: contain
+
+## Drag...
+
+
+
+---
+
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/resting_wide.jpg")
+background-size: contain
+
+## ... and drop
+
+---
+
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/ice_sculpture_wide.jpg")
+background-size: contain
+
+## Custom question types
+
+---
+
+
+
+# Concept map
+
+
+```{r concept-map, echo=FALSE, eval=!FALSE}
+library(nomnoml)
+library(magrittr)
+
+diagram <- "
+#direction: right
+#.pkg: fill=#629fdd
+
+[<pkg>sortable|
+R package]
+
+
+[sortable_js|
+javascript library]
+
+[sortable_js] --> [sortable]
+
+[sortable] -> provides [drag-and-drop;functionality]
+[drag-and-drop] -> as [htmlwidget]
+
+[htmlwidget] to -> [shiny|apps]
+[htmlwidget] -> [learnr|tutorials]
+
+[sortable] --> extends [parsons|R package;(parsons problems)]
+
+"
+
+nomnoml::nomnoml(diagram, width = 1000)
+
+```
+
+---
+
+class: inverse, center, middle
+
+# Get Started
+
+
+---
+
+class: middle, centre
+
+# github.com/rstudio/sortable
+
+## @RevoAndrie
+
+
+
+
+
