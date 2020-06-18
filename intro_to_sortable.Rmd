@@ -17,15 +17,23 @@ output:
       ratio: 16:9
     includes:
       after_body: include/insert-logo.html
-
+resource_files:
+  - include
+  - images
+  - images/flickr/*.jpg
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+
+rmarkdown::output_metadata$set(
+  rsc_output_files = list.files("images/flickr/", pattern = "*_wide.jpg", recursive = TRUE, full.names = TRUE)
+)
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
+library(showtext)
 style_duo_accent(
   primary_color = "#3771c8",
   secondary_color = "#629fdd",
@@ -113,12 +121,28 @@ class: inverse, center, middle
 
 # Get Started
 
+---
+
+Penguins
+
+<iframe 
+src="https://andrie-de-vries.shinyapps.io/pengions-and-sortable/"
+width = 1000
+height = 550
+></iframe>
+
 
 ---
 
 class: middle, centre
 
-# github.com/rstudio/sortable
+# Package
+
+## github.com/rstudio/sortable
+
+# Slides
+
+## https://colorado.rstudio.com/rsc/intro-to-sortable/
 
 ## @RevoAndrie
 
