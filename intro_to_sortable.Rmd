@@ -123,12 +123,24 @@ class: inverse, center, middle
 
 ---
 
-Penguins
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/adelie_penguins_wide.jpg")
+background-size: contain
+
+# Penguins
+
+---
+
+
+background-image: url("images/flickr/adelie_penguins_wide.jpg")
+background-size: contain
+
 
 <iframe 
 src="https://andrie-de-vries.shinyapps.io/pengions-and-sortable/"
 width = 1000
-height = 550
+height = 600
 ></iframe>
 
 
