@@ -6,5 +6,6 @@ tibble::tribble(
   "sled_dog_curl.jpg", "Alexa Clarke", "https://www.flickr.com/photos/lexnger/2329217638",
   "ice_sculpture.jpg", "Harri Hukkanen", "https://www.flickr.com/photos/alcyoneathcx/8361570872",
   "cliff_jump.jpg", "riciardus", "https://pxhere.com/en/photo/1422165",
-  "ice_crystals.jpg", "UI here", "https://www.uihere.com/free-photos/macro-photography-of-ice-crystals-466131"
+  "ice_crystals.jpg", "UI here", "https://www.uihere.com/free-photos/macro-photography-of-ice-crystals-466131",
+  "adelie penguins.jpg", "Robert Nunn", "https://www.flickr.com/photos/robnunn/2268891429"
 )

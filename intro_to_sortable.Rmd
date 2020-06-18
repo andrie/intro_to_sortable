@@ -17,11 +17,6 @@ output:
       ratio: 16:9
     includes:
       after_body: include/insert-logo.html
-    slideNumberFormat: |
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
-          </div>
-        </div>`
 
 ---
 

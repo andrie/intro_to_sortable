@@ -1,0 +1,13 @@
+name: Penguins-and-sortable
+title: Penguins-and-sortable
+username:
+account: andrie-de-vries
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2474758
+bundleId: 3289268
+url: https://andrie-de-vries.shinyapps.io/Penguins-and-sortable/
+when: 1592516233.03178
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: images/culmen_depth.png|images/lter_penguins.png|images/penguins_logo.png
