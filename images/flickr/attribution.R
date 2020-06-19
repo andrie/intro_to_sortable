@@ -7,5 +7,6 @@ tibble::tribble(
   "ice_sculpture.jpg", "Harri Hukkanen", "https://www.flickr.com/photos/alcyoneathcx/8361570872",
   "cliff_jump.jpg", "riciardus", "https://pxhere.com/en/photo/1422165",
   "ice_crystals.jpg", "UI here", "https://www.uihere.com/free-photos/macro-photography-of-ice-crystals-466131",
-  "adelie penguins.jpg", "Robert Nunn", "https://www.flickr.com/photos/robnunn/2268891429"
+  "adelie_penguins.jpg", "Robert Nunn", "https://www.flickr.com/photos/robnunn/2268891429",
+  "towers_of_hanoi.jpg", "lilszeto", "https://www.flickr.com/photos/mszeto/3261725397"
 )

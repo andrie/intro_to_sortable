@@ -43,10 +43,37 @@ style_duo_accent(
 )
 ```
 
+class: ribbon, ribbon-bottom
 
-class: center, middle
+background-image: url("images/flickr/towers_of_hanoi_wide.jpg")
+background-size: contain
 
 # Motivation
+
+---
+
+## Formative assessment
+
+I teach R administration once per month
+
+I want my students to have **continuous learning and feedback**
+
+* They must be able to find the answer themselves
+
+Formative assessment gives **immediate feedback**
+
+One way of doing this is to ask **ranking questions**
+
+* For example, what is the correct sequence of installing a product?
+
+
+---
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/towers_of_hanoi_wide.jpg")
+background-size: contain
+
+## I want to ask ranking questions using `learnr`
 
 ---
 
@@ -55,7 +82,7 @@ class: ribbon, ribbon-bottom
 background-image: url("images/flickr/running_by_wide.jpg")
 background-size: contain
 
-## Drag...
+## I want to drag...
 
 
 
@@ -73,53 +100,285 @@ background-size: contain
 class: ribbon, ribbon-bottom
 
 background-image: url("images/flickr/ice_sculpture_wide.jpg")
-background-size: contain
 
-## Custom question types
+background-size: contain
+## ... and create custom question types 
+
+---
+
+## Simple, right?
+
+.center[
+![](images/nomnoml/learnr_shiny_how.png)
+]
 
 ---
 
 
+## Introducing `sortable`
 
-# Concept map
-
-
-```{r concept-map, echo=FALSE, eval=!FALSE}
-library(nomnoml)
-library(magrittr)
-
-diagram <- "
-#direction: right
-#.pkg: fill=#629fdd
-
-[<pkg>sortable|
-R package]
+.center[
+![](images/nomnoml/learnr_shiny_sortable.png)
+]
 
 
-[sortable_js|
-javascript library]
 
-[sortable_js] --> [sortable]
+---
 
-[sortable] -> provides [drag-and-drop;functionality]
-[drag-and-drop] -> as [htmlwidget]
+class: ribbon, ribbon-bottom
 
-[htmlwidget] to -> [shiny|apps]
-[htmlwidget] -> [learnr|tutorials]
+background-image: url("images/flickr/towers_of_hanoi_wide.jpg")
+background-size: contain
 
-[sortable] --> extends [parsons|R package;(parsons problems)]
 
-"
+# Show me a demo!
 
-nomnoml::nomnoml(diagram, width = 1000)
+---
 
+
+## Demo tutorial
+
+
+<div class='wrap-tutorial'>
+<iframe 
+src="https://andrie-de-vries.shinyapps.io/sortable_tutorial_question_rank/#section-creating-a-ranking-question"
+></iframe>
+</div>
+
+---
+
+## Show me the code
+
+```{r eval=FALSE}
+# Define the answer options
+library(sortable) #<<
+
+insects <- c(
+    "ant",
+    "bumble bee",
+    "cricket",
+    "dragonfly"
+  )
+
+# Initialize the question
+question_rank( #<<
+  "Sort these insects in alpabetical order:",
+  answer(insects, correct = TRUE),
+  answer(rev(insects), correct = FALSE, message = "Other direction!"),
+  allow_retry = TRUE
+) #<<
 ```
 
 ---
 
-class: inverse, center, middle
+class: ribbon, ribbon-bottom
 
-# Get Started
+background-image: url("images/flickr/towers_of_hanoi_wide.jpg")
+background-size: contain
+
+# How to use `sortable` in a shiny app?
+
+---
+
+## Demo app
+
+
+<div class='wrap-app'>
+<iframe 
+src="https://andrie-de-vries.shinyapps.io/sortable_rank_list_app/"
+></iframe>
+</div>
+
+---
+
+## Show me the code
+
+First define some labels to appear in a list:
+
+```{r eval=FALSE}
+labels <- list(
+  "one",
+  "two",
+  "three",
+  "four",
+  "five"
+)
+```
+
+---
+
+## Using `rank_list()`
+
+```{r eval=FALSE}
+library(shiny)
+library(sortable) #<<
+
+ui <- fluidPage(
+  tags$b("Exercise"),
+  rank_list( #<<
+    text = "Drag the items in any desired order",
+    labels = labels,
+    input_id = "rank_list_basic"
+  ),
+  tags$b("Result"),
+  verbatimTextOutput("results_basic")
+)
+
+server <- function(input, output) {
+  output$results_basic <- renderPrint({
+    ## This matches the input_id of the rank list
+    input$rank_list_basic
+  })
+}
+```
+
+---
+
+## Matching the `input_id` and output
+
+```{r eval=FALSE}
+library(shiny)
+library(sortable)
+
+ui <- fluidPage(
+  tags$b("Exercise"),
+  rank_list(
+    text = "Drag the items in any desired order",
+    labels = labels,
+    input_id = "rank_list_basic" #<<
+  ),
+  tags$b("Result"),
+  verbatimTextOutput("results_basic")
+)
+
+server <- function(input, output) {
+  output$results_basic <- renderPrint({
+    ## This matches the input_id of the rank list
+    input$rank_list_basic #<<
+  })
+}
+```
+
+
+---
+
+## Summary of using `rank_list()` in a `shiny` app
+
+Steps: 
+
+* Use `rank_list()`
+* Define the `input_id` in the UI
+* Use the matching `output` in the server
+
+
+```{r eval=FALSE}
+ui <- fluidPage(
+
+  rank_list( #<<
+    text = "Drag the items in any desired order",
+    labels = labels,
+    input_id = "rank_list_basic" #<<
+  ),
+  verbatimTextOutput("results_basic")
+)
+
+server <- function(input, output) {
+  output$results_basic <- renderPrint({
+    ## This matches the input_id of the rank list
+    input$rank_list_basic #<<
+  })
+}
+```
+
+
+---
+
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/towers_of_hanoi_wide.jpg")
+background-size: contain
+
+# Please give me a mental model!
+
+---
+
+## Concept map
+
+.center[
+![](images/nomnoml/sortable_intro.png)
+]
+
+---
+
+
+## Sortable functions
+
+.center[
+![](images/nomnoml/sortable_functions_1.png)
+]
+
+
+---
+
+## Sortable functions
+
+.center[
+![](images/nomnoml/sortable_functions_2.png)
+]
+
+
+---
+
+
+class: ribbon, ribbon-bottom
+
+background-image: url("images/flickr/towers_of_hanoi_wide.jpg")
+background-size: contain
+
+# What else is there to know?
+
+
+---
+
+## Sortable is a framework
+
+Sortable is essentially a fairly light-weight wrapper around `sortable.js`
+
+* In principle you can make anything drag-and-drop
+
+* The `sortable` R package exposes
+
+  - A low-level interface to `sortable.js`
+  
+  - Example implementation of functions to use in a shiny app and learnr tutorials
+  
+
+---
+
+## Many other options to build your own apps
+
+* Built-in support for `sortable.js` plugins
+
+  - Multi-drag
+  - Swap
+  
+* Options to control many other aspects
+  
+  - Shared lists
+  - Cloning
+  - Put (control whether a list can accept elements)
+  - Pull (control if you can drag from a list)
+  
+* Wrappers to inject your own JavaScript functions
+
+
+<hr>
+
+See also: https://sortablejs.github.io/Sortable/
+
+
+
+
 
 ---
 
@@ -128,7 +387,7 @@ class: ribbon, ribbon-bottom
 background-image: url("images/flickr/adelie_penguins_wide.jpg")
 background-size: contain
 
-# Penguins
+# Show me some penguins!
 
 ---
 
@@ -138,7 +397,7 @@ background-size: contain
 
 ## Penguins
 
-<div class='wrap'>
+<div class='wrap-app'>
 <iframe 
 src="https://andrie-de-vries.shinyapps.io/pengions-and-sortable/"
 ></iframe>
@@ -146,15 +405,14 @@ src="https://andrie-de-vries.shinyapps.io/pengions-and-sortable/"
 
 ---
 
-class: middle, centre
+class: ribbon
 
-# Package
+background-image: url("images/flickr/adelie_penguins_wide.jpg")
+background-size: contain
 
-## github.com/rstudio/sortable
+## Package: <small>github.com/rstudio/sortable</small>
 
-# Slides
-
-## https://colorado.rstudio.com/rsc/intro-to-sortable/
+## Slides: <small>https://colorado.rstudio.com/rsc/intro-to-sortable/</small>
 
 ## @RevoAndrie
 
