@@ -1,9 +1,9 @@
 ---
-title: "Introduction to `sortable`"
-subtitle: "Using drag-and-drop in your shiny apps"  
+title: "Using drag-and-drop in your shiny apps"  
+subtitle: "Introduction to `sortable`"
 author: 
-  - "Andrie de Vries"
-date: '`r Sys.Date()`'
+  - "Andrie de Vries (Solutions Engineer, RStudio)"
+date: 'eRum, 2020-06-19'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -136,13 +136,13 @@ background-size: contain
 background-image: url("images/flickr/adelie_penguins_wide.jpg")
 background-size: contain
 
+## Penguins
 
+<div class='wrap'>
 <iframe 
 src="https://andrie-de-vries.shinyapps.io/pengions-and-sortable/"
-width = 1000
-height = 600
 ></iframe>
-
+</div>
 
 ---
 
