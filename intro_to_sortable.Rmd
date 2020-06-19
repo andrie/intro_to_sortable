@@ -183,11 +183,9 @@ background-size: contain
 ## Demo app
 
 
-<div class='wrap-app'>
-<iframe 
+<div class='wrap-tutorial'><iframe 
 src="https://andrie-de-vries.shinyapps.io/sortable_rank_list_app/"
-></iframe>
-</div>
+></iframe></div>
 
 ---
 
@@ -216,10 +214,10 @@ library(sortable) #<<
 ui <- fluidPage(
   tags$b("Exercise"),
   rank_list( #<<
-    text = "Drag the items in any desired order",
-    labels = labels,
-    input_id = "rank_list_basic"
-  ),
+    text = "Drag the items in any desired order", #<<
+    labels = labels, #<<
+    input_id = "rank_list_basic" #<<
+  ), #<<
   tags$b("Result"),
   verbatimTextOutput("results_basic")
 )
@@ -329,6 +327,16 @@ background-size: contain
 
 ---
 
+## Bucket list
+
+
+<div class='wrap-tutorial'><iframe 
+src="https://andrie-de-vries.shinyapps.io/sortable_bucket_list_app/"
+></iframe></div>
+
+
+---
+
 
 class: ribbon, ribbon-bottom
 
@@ -405,10 +413,36 @@ src="https://andrie-de-vries.shinyapps.io/pengions-and-sortable/"
 
 ---
 
+
+
+
 class: ribbon
 
 background-image: url("images/flickr/adelie_penguins_wide.jpg")
 background-size: contain
+
+# Conclusion
+
+---
+
+## Conclusion
+
+Use `sortable` to:
+
+* Add **rank and bucket lists** to `shiny` apps
+
+* Add **ranking and bucketing questions**  to `learnr tutorials
+
+* Create your own **complex drag-and-drop** in `shiny` apps
+
+---
+
+class: ribbon
+
+background-image: url("images/flickr/adelie_penguins_wide.jpg")
+background-size: contain
+
+
 
 ## Package: <small>github.com/rstudio/sortable</small>
 
