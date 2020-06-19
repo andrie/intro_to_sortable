@@ -5,9 +5,9 @@ account: andrie-de-vries
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2474779
-bundleId: 3289286
+bundleId: 3290611
 url: https://andrie-de-vries.shinyapps.io/pengions-and-sortable/
-when: 1592516505.80888
+when: 1592547924.59048
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: images/culmen_depth.png|images/lter_penguins.png|images/penguins_logo.png
+ignoredFiles: www/images/culmen_depth.png|www/images/lter_penguins.png|www/images/penguins_logo.png
