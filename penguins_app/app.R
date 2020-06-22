@@ -21,18 +21,8 @@ colnames_to_tags <- function(x){
   )
 }
 
-dataset <- penguins
+dataset <- palmerpenguins::penguins
 
-
-# tags$div(
-#   class = "panel panel-default",
-#   tags$div(class = "panel-heading", "Variables"),
-#   tags$div(
-#     class = "panel-body",
-#     id = "sort1",
-#     colnames_to_tags(dataset)
-#   )
-# )
 
 panel <- function(title, id, content = NULL) {
   tags$div(
